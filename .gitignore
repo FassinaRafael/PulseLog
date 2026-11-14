@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build & TypeScript cache
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Deployment & local env
+.vercel/
+.env
+.env.*
+
+# Logs & OS artifacts
+*.log
+.DS_Store
+Thumbs.db

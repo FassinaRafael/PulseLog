@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0c;
+  --color-surface: #0a0a0c;
+  --color-surface-dim: #0a0a0c;
+  --color-surface-bright: #27272a;
+  --color-surface-container-lowest: #0a0a0c;
+  --color-surface-container-low: #141417;
+  --color-surface-container: #141417;
+  --color-surface-container-high: #1c1c20;
+  --color-surface-container-highest: #27272a;
+  --color-surface-variant: #1f1f23;
+  --color-on-surface: #f4f4f5;
+  --color-on-surface-variant: #71717a;
+  --color-on-background: #f4f4f5;
+  --color-outline: #71717a;
+  --color-outline-variant: #1f1f23;
+  --color-primary: #10b981;
+  --color-on-primary: #052e16;
+  --color-primary-container: #10b981;
+  --color-on-primary-container: #052e16;
+  --color-primary-fixed: #34d399;
+  --color-primary-fixed-dim: #10b981;
+  --color-secondary: #a1a1aa;
+  --color-secondary-container: #1f1f23;
+  --color-on-secondary-container: #a1a1aa;
+  --color-tertiary: #10b981;
+  --color-tertiary-container: #059669;
+  --color-error: #f87171;
+  --color-error-container: #450a0a;
+  --color-on-error-container: #fecaca;
+
+  --font-headline: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0c;
+    color: #f4f4f5;
+    font-family: var(--font-body);
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.bottom-nav-offset {
+  bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-reveal {
+  animation: fadeSlideIn 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-modal {
+  animation: modalUp 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal,
+  .animate-modal {
+    animation: none;
+  }
+}
+
+/* Hide scrollbars while keeping horizontal scroll ergonomic */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
